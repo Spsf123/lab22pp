@@ -129,4 +129,20 @@ void List::append(int d){
 	size++;
 }
 
-//Write List::remove() here
+void List::remove(int d){
+	if(d == 0){
+		Node *p = new Node;
+		p = root;
+		root = root->next;
+		delete p;
+	}else{
+		Node *current = root;
+		for(int i = 0 ; i < d-1 ; i++){
+			current = current->next;
+		}
+		Node *prev = new Node;
+		prev = current->next;
+		current->next = current->next->next;
+		delete prev;
+	}
+}
